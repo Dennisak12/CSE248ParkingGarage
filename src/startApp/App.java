@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.HandicappedSpaces;
 import model.RegularSpaces;
+import model.TicketBag;
 import model.Vehicle;
 import model.VipSpaces;
 import view.BuyTicketPane;
@@ -27,7 +28,8 @@ public class App extends Application{
 		//create the bags to store info
 		HandicappedSpaces handiParking = new HandicappedSpaces(0);
 		RegularSpaces regularParking = new RegularSpaces(0);
-		VipSpaces vipParking = new VipSpaces(0);		
+		VipSpaces vipParking = new VipSpaces(0);
+		TicketBag ticketBag = new TicketBag(null);
 		
 		//create the panes
 		BuyTicketPane buyTicket = new BuyTicketPane();
@@ -36,10 +38,10 @@ public class App extends Application{
 		ExtendTimePane extendTime = new ExtendTimePane();
 		
 		//create the controllers
-		BuyTicketController buyTicketController = new BuyTicketController(start, buyTicket, handiParking, regularParking, vipParking,mainStage);
-		CancelTicketController cancelTicketController = new CancelTicketController(start,cancelTicket, handiParking, regularParking, vipParking,mainStage);
-		StartController startController = new StartController(start, extendTime,buyTicket, cancelTicket, mainStage);
-		ExtendTimeController extendTimeController = new ExtendTimeController(start, extendTime, handiParking, regularParking, vipParking, mainStage);
+		BuyTicketController buyTicketController = new BuyTicketController(start, buyTicket, handiParking, regularParking, vipParking,ticketBag,mainStage);
+		CancelTicketController cancelTicketController = new CancelTicketController(start,cancelTicket, handiParking, regularParking, vipParking,ticketBag,mainStage);
+		StartController startController = new StartController(start, extendTime,buyTicket, cancelTicket,ticketBag, mainStage);
+		ExtendTimeController extendTimeController = new ExtendTimeController(start, extendTime, handiParking, regularParking, vipParking,ticketBag,mainStage);
 		
 		//start the program
 		Scene scene = start.getScene();

@@ -5,13 +5,14 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.HandicappedSpaces;
 import model.RegularSpaces;
+import model.TicketBag;
 import model.VipSpaces;
 import view.ExtendTimePane;
 import view.StartPane;
 
 public class ExtendTimeController {
 
-	public ExtendTimeController(StartPane start, ExtendTimePane extendTimePane,HandicappedSpaces handiSpaces, RegularSpaces regularSpaces,VipSpaces vipSpaces, Stage mainStage){
+	public ExtendTimeController(StartPane start, ExtendTimePane extendTimePane,HandicappedSpaces handiSpaces, RegularSpaces regularSpaces,VipSpaces vipSpaces, TicketBag tickets, Stage mainStage){
 		
 		extendTimePane.getExtendTimeButton().setOnAction(e ->{
 			
