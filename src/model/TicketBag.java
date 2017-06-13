@@ -7,7 +7,7 @@ public class TicketBag {
 	private int counter = 0;
 	private ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
-	public TicketBag(Ticket ticket) {
+	public TicketBag(String ticket) {
 		this.tickets = tickets;
 	}
 
@@ -16,22 +16,23 @@ public class TicketBag {
 			counter++;
 	}
 
-	public boolean removeTicket(String s) {
-		for(int i = 0; i < counter; i++){
-			if(tickets.contains(s)){
+	public boolean removeTicket(int j) {
+		for(int i = 0; i < tickets.size(); i++){
+			if(tickets.contains(j)){
 				System.out.println("found Ticket");
-				tickets.remove(s);
+				tickets.remove(j);
 				return true;
 			}
 		}
 		System.out.println("not found in This ticket bag");
+
 		return false;
 	}
 	
-	public boolean isFound(String s) {
-		for (int i = 0; i > counter; i++) {
-			if (tickets.contains(s)) {
-				System.out.println(s + "found in ticket bag");
+	public boolean isFound(int t) {
+		for (int i = 0; i > tickets.size(); i++) {
+			if (tickets.contains(t)) {
+				System.out.println(t + "found in ticket bag");
 				return true;
 			}
 		}

@@ -43,13 +43,12 @@ public class VipSpaces {
 	}
 	
 	public boolean isFound(String s) {
-		for (int i = 0; i > counter; i++) {
+		for (int i = 0; i < counter; i++) {
 			if (vipSpace.contains(s)) {
-				System.out.println(s + " found in regular spaces list");
 				return true;
 			}
 		}
-		System.out.println("not found in regular spaces list");
+		System.out.println("not found in vip list");
 		return false;
 	}
 

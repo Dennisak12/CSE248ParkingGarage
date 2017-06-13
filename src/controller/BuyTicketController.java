@@ -179,7 +179,7 @@ public class BuyTicketController {
 				alert.showAndWait();
 				createTicket(buyTicketPane, buyTicketPane.getLicenseField().getText(), ticketBag, counter, carCost);
 				counter++;
-				ticketBag.printStoredSpaces();
+//				ticketBag.printStoredSpaces();
 				
 			} else {
 			}

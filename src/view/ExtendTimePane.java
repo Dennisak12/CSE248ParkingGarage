@@ -53,6 +53,18 @@ public class ExtendTimePane {
 	public Label getExtendTimeLabel() {
 		return extendTimeLabel;
 	}
+	
+	public Label getExtendTimeLabel2() {
+		return extendTimeLabel2;
+	}
+
+	public ObservableList<String> getTimeLimitOption() {
+		return timeLimitOption;
+	}
+
+	public ComboBox<String> getComboTimeLimit() {
+		return comboTimeLimit;
+	}
 
 	public VBox getPane() {
 		return pane;

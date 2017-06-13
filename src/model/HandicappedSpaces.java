@@ -21,8 +21,8 @@ public class HandicappedSpaces {
 	}
 
 	public boolean removeVehicle(String s) {
-		for(int i = 0; i < counter; i++){
-			if(handicappedSpace.contains(s)){
+		for (int i = 0; i < counter; i++) {
+			if (handicappedSpace.contains(s)) {
 				handicappedSpace.remove(s);
 				counter--;
 				return true;
@@ -31,19 +31,18 @@ public class HandicappedSpaces {
 		System.out.println("not found in handicapped list");
 		return false;
 	}
-	
+
 	public boolean isFound(String s) {
-		for (int i = 0; i > counter; i++) {
+		for (int i = 0; i < counter; i++) {
 			if (handicappedSpace.contains(s)) {
-				System.out.println(s + " found in regular spaces list");
 				return true;
 			}
 		}
-		System.out.println("not found in regular spaces list");
+		System.out.println("not found in handicapped list");
 		return false;
 	}
-	
-	public boolean isFullHandi(){
+
+	public boolean isFullHandi() {
 		if (counter > 5) {
 			System.out.println("The garage is full");
 			return true;

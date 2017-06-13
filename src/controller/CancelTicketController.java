@@ -5,6 +5,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.HandicappedSpaces;
 import model.RegularSpaces;
+import model.Ticket;
 import model.TicketBag;
 import model.VipSpaces;
 import view.CancelTicketPane;
@@ -19,7 +20,10 @@ public class CancelTicketController {
 			handiSpaces.printStoredSpaces();
 			cancelTicketPane.getLicenseTextField().getText();
 			removeVehicle(cancelTicketPane, handiSpaces, regularSpaces, vipSpaces, tickets);
-			tickets.printStoredSpaces();
+			
+//			tickets.printStoredSpaces();
+//			Ticket t = new Ticket(cancelTicketPane.getLicenseTextField().getText(), 0, 0);
+//			tickets.isFound(t.getTicketNum());
 
 		});
 		cancelTicketPane.getExitBtn().setOnAction(e -> {
@@ -31,34 +35,41 @@ public class CancelTicketController {
 	public void removeVehicle(CancelTicketPane cancelTicketPane, HandicappedSpaces handiSpace,
 			RegularSpaces regularSpace, VipSpaces vipSpace, TicketBag ticketBag) {
 		String license = cancelTicketPane.getLicenseTextField().getText();
-		
-		//finds the license plate number if no ticket number was given, and removes it from the given bag
+		Ticket t = new Ticket(license, 0, 0);
+		t.getLicensePlate();
+		// finds the license plate number if no ticket number was given, and
+		// removes it from the given bag
 		if (handiSpace.removeVehicle(license) == true) {
 			handiSpace.removeVehicle(license);
-			alertCar("Vehicle: " + cancelTicketPane.getLicenseTextField().getText() + " has been removed",
+			alertCar("Vehicle: " + license + " has been removed",
 					"Congratulations");
 		} else if (regularSpace.removeVehicle(license) == true) {
 			regularSpace.removeVehicle(license);
-			alertCar("Vehicle: " + cancelTicketPane.getLicenseTextField().getText() + " has been removed",
+			alertCar("Vehicle: " + license + " has been removed",
 					"Congratulations");
 		} else if (vipSpace.removeVehicle(license) == true) {
 			vipSpace.removeVehicle(license);
-			alertCar("Vehicle: " + cancelTicketPane.getLicenseTextField().getText() + " has been removed",
+			alertCar("Vehicle: " + license + " has been removed",
 					"Congratulations");
-			//finds the ticket, and then the associated parking bag, which removes the ticket from the system AND the parking space.
-		} else if (ticketBag.removeTicket(license) == true) {
-			ticketBag.removeTicket(license);
-			if (handiSpace.removeVehicle(license) == true) {
-				handiSpace.removeVehicle(license);
-			} else if (regularSpace.removeVehicle(license) == true) {
-				regularSpace.removeVehicle(license);
-			} else if (vipSpace.removeVehicle(license) == true) {
-				vipSpace.removeVehicle(license);
-				alertCar("Vehicle: " + license + " has been removed", "Congratulations");
-			} else {
-				alertCar("This ticket or vehicle is not in our system, sorry!", "Sorry");
-			}
-			vipSpace.printStoredSpaces();
+			
+			// finds the ticket, and then the associated parking bag, which
+			// removes the ticket from the system AND the parking space.
+			
+			
+			//IMPLEMENTATION MUST BE FIXED
+//		} else if (ticketBag.removeTicket(t.getTicketNum()) == true) {
+//			ticketBag.removeTicket(t.getTicketNum());
+//			if (handiSpace.removeVehicle(license) == true) {
+//				handiSpace.removeVehicle(license);
+//			} else if (regularSpace.removeVehicle(license) == true) {
+//				regularSpace.removeVehicle(license);
+//			} else if (vipSpace.removeVehicle(license) == true) {
+//				
+//				vipSpace.removeVehicle(license);
+//				alertCar("Vehicle: " + license + " has been removed", "Congratulations");
+//			}
+		} else {
+			alertCar("This ticket or vehicle is not in our system, sorry!", "Sorry");
 		}
 	}
 
